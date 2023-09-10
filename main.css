@@ -39,8 +39,8 @@ nav ul li a:hover  {
 
 div.hero {
     height: 350px;
-    background-color: #b4c6f0;
-    background-image: url('bg.png');
+    background-color: #000000fa;
+    background-image: url('budget3.jpeg');
     background-size: 400px;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -51,6 +51,7 @@ div.hero h1,
 div.hero h2 {
     text-align: center;
     margin: 0;
+    padding-bottom: 180px;
     
 }
 
@@ -62,6 +63,7 @@ div.hero h1 {
 
 div.hero h2 {
     color: #4d5791;
+    
 }
 
 main {
@@ -72,6 +74,7 @@ main {
 .page-area {
     max-width: 768px;
     display: inline-block;
+    font-size: 1.5em;
     
 }
 
