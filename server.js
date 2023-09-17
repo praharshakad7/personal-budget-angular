@@ -5,7 +5,7 @@ const fs = require('fs');
 
 // Serve static files
 app.use(express.static(__dirname));
-
+app.use('/', express.static('public'));
 // Endpoint to serve budget.json
 app.get('/budget', (req, res) => {
     fs.readFile('budget.json', 'utf8', (err, data) => {
