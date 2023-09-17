@@ -1,19 +1,22 @@
 const express = require('express');
-const cors = require('cors');
-const fs = require('fs'); // File system module
 const app = express();
 const port = 3000;
+const fs = require('fs');
 
-app.use('/', express.static('public'));
-app.use(cors());
+// Serve static files
+app.use(express.static(__dirname));
 
-// Load budget data from budget.json
-const budget = JSON.parse(fs.readFileSync('budget.json', 'utf8'));
-
+// Endpoint to serve budget.json
 app.get('/budget', (req, res) => {
-    res.json(budget);
+    fs.readFile('budget.json', 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading budget.json');
+            return;
+        }
+        res.send(JSON.parse(data));
+    });
 });
 
 app.listen(port, () => {
-    console.log(`API served at http://localhost:${port}`);
+    console.log(`Server started at http://localhost:${port}`);
 });

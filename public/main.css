@@ -1,10 +1,13 @@
+/* Reset styles */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-size: 10px;
-    font-family:  'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 nav {
@@ -16,8 +19,6 @@ nav {
 
 nav ul,
 nav ul li {
-    margin: 0;
-    padding: 0 ;
     list-style: none;
     display: inline-block;
 }
@@ -29,10 +30,9 @@ nav ul li a {
     font-size: 1.4em;
     text-decoration: none;
     color: #b4c6f0;
-    margin: 0;
 }
 
-nav ul li a:hover  {
+nav ul li a:hover {
     background-color: rgb(246, 246, 246);
     color: #9675b4;
 }
@@ -52,7 +52,6 @@ div.hero h2 {
     text-align: center;
     margin: 0;
     padding-bottom: 180px;
-    
 }
 
 div.hero h1 {
@@ -63,7 +62,6 @@ div.hero h1 {
 
 div.hero h2 {
     color: #4d5791;
-    
 }
 
 main {
@@ -75,12 +73,11 @@ main {
     max-width: 768px;
     display: inline-block;
     font-size: 1.5em;
-    
 }
 
 footer {
     height: 50px;
-    background-color:#b4c6f0;
+    background-color: #b4c6f0;
     padding: 40px;
 }
 
@@ -112,11 +109,10 @@ main article {
         margin: 10px;
     }
 }
-.skip
-{
+
+#myChart {
+    width: 400px;
+    height: 400px;
     display: block;
-    padding: 0 20px;
-    line-height: 120px;
-    font-size: 1.4em;
-    text-decoration: none;
+    margin: 0 auto;
 }
