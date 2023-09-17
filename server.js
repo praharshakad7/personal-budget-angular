@@ -1,29 +1,14 @@
-// Budget API
-
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs'); // File system module
 const app = express();
 const port = 3000;
 
+app.use('/', express.static('public'));
 app.use(cors());
 
-const budget = {
-    myBudget: [
-        {
-            title: 'Eat out',
-            budget: 25
-        },
-        {
-            title: 'Rent',
-            budget: 275
-        },
-        {
-            title: 'Grocery',
-            budget: 110
-        },
-    ]
-};
-
+// Load budget data from budget.json
+const budget = JSON.parse(fs.readFileSync('budget.json', 'utf8'));
 
 app.get('/budget', (req, res) => {
     res.json(budget);
