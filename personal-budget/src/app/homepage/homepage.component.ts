@@ -23,6 +23,7 @@ export class HomepageComponent implements AfterViewInit {
     ],
     labels: []
   };
+  public dataSource1: any[] = [];
 
   public svg: any;
   public width = 650;
@@ -92,13 +93,41 @@ export class HomepageComponent implements AfterViewInit {
   private myPieChart: any;
 
   ngAfterViewInit(): void {
-    this.dataService.fetchData().subscribe((res: any) => {
-      for (let k = 0; k < res.myBudget.length; k++) {
-        this.dataSource.datasets[0].data[k] = res.myBudget[k].budget;
-        this.dataSource.labels[k] = res.myBudget[k].title;
-      }
+    const dataFromService = this.dataService.getDataSource();
+    const dataFromService1 = this.dataService.getDataSource1();
+
+    if (
+      (!dataFromService || !dataFromService.datasets || dataFromService.datasets[0].data.length == 0) ||
+      (!dataFromService1 || dataFromService1.length == 0)
+    ) {
+      this.dataService.fetchDataFromBackend().subscribe((res: any) => {
+        for (var i = 0; i < res.length; i++) {
+          this.dataSource.datasets[0].data[i] = res[i].budget;
+          this.dataSource.labels[i] = res[i].title;
+
+          this.dataSource1.push({
+            "label": res[i].title,
+            "value": res[i].budget,
+          });
+        }
+        this.dataService.setDataSource(this.dataSource);
+        this.dataService.setDataSource1(this.dataSource1);
+
+        this.createChart();
+        this.createSvg();
+        this.createColors();
+        this.drawChart();
+      });
+    }
+    else {
+      this.dataSource = dataFromService;
+      this.dataSource1 = dataFromService1;
+
       this.createChart();
-    });
+      this.createSvg();
+      this.createColors();
+      this.drawChart();
+    }
   }
 
   createChart() {
