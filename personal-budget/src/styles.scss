@@ -399,7 +399,7 @@ nav ul li a:hover {
 div.hero {
   height: 350px;
   background-color: #000000fa;
-  background-image: url(' /assets/budget3.jpeg');
+  background-image: url('/assets/budget3.jpeg');
   background-size: 400px;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -469,9 +469,9 @@ main article {
   }
 }
 
-#myChart {
-  width: 400px;
-  height: 400px;
-  display: block;
-  margin: 0 auto;
-}
+// #myChart {
+//   width: 400px;
+//   height: 400px;
+//   display: block;
+//   margin: 0 auto;
+// }
